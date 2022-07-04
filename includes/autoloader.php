@@ -2,16 +2,22 @@
 
 spl_autoload_register('myAutoLoader');
 
-function myAutoLoader(string $className)
+function myAutoLoader(string $className): void
 {
-    $path = 'classes/';
+
+    $path = ['classes/', ''];
     $extension = '.php';
-    $fullPath = $path . $className . $extension;
 
-    if(!file_exists($fullPath)){
-        return false;
+    $found = false;
+
+    for ($i = 0; !$found && $i < count($path); $i++) {
+
+        $fullPath = $path[$i] . $className . $extension;
+
+        $found = file_exists($fullPath);
+
+        if ($found) {
+            include_once $fullPath;
+        }
     }
-
-    include_once $fullPath;
-
 }

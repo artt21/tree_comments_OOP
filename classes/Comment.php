@@ -21,19 +21,9 @@ class Comment
         $this->children = [];
     }
 
-    private function setId(int $id):void
-    {
-        $this->id = $id;
-    }
-
     public function getId():int
     {
         return $this->id;
-    }
-
-    private function setParentId(?int $parentId):void
-    {
-        $this->parentId = $parentId;
     }
 
     public function getParentId():?int
@@ -41,7 +31,7 @@ class Comment
         return $this->parentId;
     }
 
-    private function setName(string $name):void
+    public function setName(string $name):void
     {
         $this->name = $name;
     }
@@ -51,19 +41,9 @@ class Comment
         return $this->name;
     }
 
-    private function setContent(string $content):void
-    {
-        $this->content = $content;
-    }
-
     public function getContent():string
     {
         return $this->content;
-    }
-
-    private function setDate(string $date):void
-    {
-        $this->date = $date;
     }
 
     public function getDate():string

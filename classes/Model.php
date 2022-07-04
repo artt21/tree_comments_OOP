@@ -53,39 +53,5 @@ class Model{
 
     }
 
-    public function dataValidation(): array
-    {
-
-        $errorMessage = [];
-
-        $name = trim($_POST['name']);
-        $content = trim($_POST['content']);
-        $allowedSymbols = "/^[a-zA-Z0-9-',.:!_? ]*$/";
-        $nameLength = 50;
-        $contentLength = 1000;
-
-        if (mb_strlen($name) > $nameLength) {
-            $errorMessage['name'] = "Name should have less than 30 symbols";
-        }
-        if (mb_strlen($content) > $contentLength) {
-            $errorMessage['content'] = "Commentary should have less than 1000 symbols";
-        }
-        if (empty($name)) {
-            $errorMessage['name'] = "Enter your name";
-        }
-        if (empty($content)) {
-            $errorMessage['content'] = "Enter your commentary";
-        }
-        if (!preg_match($allowedSymbols, $name)) {
-            $errorMessage['name'] = "Such symbols are not allowed";
-        }
-        if (!preg_match($allowedSymbols, $content)) {
-            $errorMessage['content'] = "Such symbols are not allowed";
-        }
-
-        return $errorMessage;
-
-    }
-
 }
 

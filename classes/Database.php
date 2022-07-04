@@ -5,36 +5,34 @@ class Database{
     private const HOST = 'localhost';
     private const USERNAME = 'root';
     private const CHARSET = 'utf8mb4';
-    private string $password = '';
-    private string $dbName = 'comments';
-    private ?PDO $pdo = null;
-    private array $options = [
+    private const PASSWORD = '';
+    private const DBNAME = 'comments';
+    private const OPTIONS = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
+    private ?PDO $pdo = null;
 
-    private function connect(): PDO
+    private function connect(): void
     {
 
         if(!$this->pdo){
-            $dsn = 'mysql:host=' . self::HOST . ';dbname=' . $this->dbName .';charset=' . self::CHARSET;
-            $this->pdo = new PDO($dsn, self::USERNAME, $this->password, $this->options);
+            $dsn = 'mysql:host=' . self::HOST . ';dbname=' . self::DBNAME .';charset=' . self::CHARSET;
+            $this->pdo = new PDO($dsn, self::USERNAME, self::PASSWORD, self::OPTIONS);
         }
-
-        return $this->pdo;
 
     }
 
-    public function query(string $sql, array $args = null): PDOStatement
+    public function query(string $sql, array $args = []): PDOStatement
     {
 
-        $connect = $this->connect();
+        $this->connect();
 
         if (!$args) {
-            return $connect->query($sql);
+            return $this->pdo->query($sql);
         }
 
-        return $connect->prepare($sql);
+        return $this->pdo->prepare($sql);
 
     }
 

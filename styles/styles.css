@@ -8,11 +8,14 @@ html {
 body{
     margin: 0;
     padding: 0;
-    font-family: Cambria;
-
+    font-family: Bahnschrift;
 }
 h1{
     font-size: 50px;
+}
+
+p {
+    margin-right: 10px;
 }
 
 /*
@@ -20,8 +23,8 @@ HEADER
  */
 
 .navbar{
-    display: flex;
     justify-content: center;
+    align-content: space-around;
     align-items: center;
     background-color: #DAEDD0;
     width: 100%;
@@ -43,11 +46,15 @@ HEADER
     font-size: 35px;
     text-align: justify;
 }
-a{
-    margin: 15px;
-    color: black;
+a:hover{
     text-decoration: none;
+    color:black;
 }
+a {
+    color:black;
+}
+
+
 
 /*
 POST
@@ -68,15 +75,13 @@ POST
     font-size: 36px;
     text-align: center;
     margin-top: 15px;
-    padding-top: 10px;
     margin-bottom: 4px;
 }
 .post .post-row{
     text-align: center;
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-size: 19px;
     min-height: 200px;
+    margin: 8px 20px;
 }
 
 /*
@@ -88,6 +93,11 @@ COMMENTARIES
     min-height: 350px;
     margin-left: 250px;
     margin-right: 250px;
+}
+
+.commentaries .errors{
+    margin-bottom: 15px;
+    color: #FF0000;
 }
 
 .commentaries ul{
@@ -125,7 +135,7 @@ COMMENTARIES
     border-width: 1px;
     border-radius: 15px;
     border-color: #DAEDD0;
-    padding-bottom: 7px;
+    padding-bottom: 0px;
 }
 
 .commentaries .comments-form .input{
@@ -149,7 +159,8 @@ COMMENTARIES
 .commentaries .comments-form h3{
     margin-left: 120px;
     margin-bottom: 10px;
-    padding-top: 0px;
+    padding-top: 11px;
+    font-size: 1.25rem;
 }
 
 .commentaries .comments-form p{
